@@ -42,7 +42,7 @@ resizeCanvas()
 
 
 
-loadPreloadScene(stage)
+loadEndScene(stage)
 preloadSceneEvent.on('next', () => {
     clearStage(stage)
     loadWelcomeScene(stage)
