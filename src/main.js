@@ -73,6 +73,5 @@ endSceneEvent.on('back', () => {
     loadPreloadScene(stage)
 })
 endSceneEvent.on('link', () => {
-    clearStage(stage)
     alert('链接到易班')
 })

@@ -25,12 +25,11 @@ backBlock.x = pageSize.width * .0441
 backBlock.y = pageSize.height * .8915
 backBlock.scaleY = backBlock.scaleX = scale
 pageContainer.addChild(backBlock)
-    // .drawRect(bitmapSize.width * .0441, bitmapSize.height * .8915, bitmapSize.width * 0.4311, bitmapSize.height * 0.0808)
 
 
 // 我可爱我先用
 let linkBlock = new createjs.Bitmap(endPageLink)
-linkBlock.x = pageSize.width * .0441
+linkBlock.x = pageSize.width * .5296
 linkBlock.y = pageSize.height * .8915
 linkBlock.scaleY = linkBlock.scaleX = scale
 pageContainer.addChild(linkBlock)
@@ -39,6 +38,10 @@ export function load(s) {
     stage = s
 
     stage.addChild(pageContainer)
+
+    pageContainer.alpha = 0
+    createjs.Tween.get(pageContainer)
+        .to({alpha:1},2000,createjs.Ease.getPowInOut(3))
 
     backBlock.addEventListener('click',(e)=>{
         eventEmitter.emit('back')
