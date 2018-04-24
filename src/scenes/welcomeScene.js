@@ -16,7 +16,7 @@ let title = new createjs.Text('山东大学欢迎你', '38px Arial', 'rgb(238,59
 title.x = resolution.width / 2 - title.getMeasuredWidth() / 2
 title.y = resolution.height / 4 + title.getMeasuredHeight() * 1.5
 
-let content = new createjs.Text('作为一所一流大学， 为了方便同学们\n的学习和生活， 现提供一份特别指南\n……', '30px Arial', 'rgb(238,59,36)')
+let content = new createjs.Text('作为一所一流大学， 为了方便同学\n们的学习和生活， 现提供一份特别\n……', '30px Arial', 'rgb(238,59,36)')
 content.maxWidth = resolution.width * .75
 content.lineHeight = 40
 content.x = resolution.width / 8
