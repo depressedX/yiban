@@ -20,7 +20,7 @@ dom.addEventListener('click',()=>{
     }
 })
 
-export function play(){
+export function play(index){
     if (bgmInstance) return
     bgmInstance = createjs.Sound.play('bgm')
 }

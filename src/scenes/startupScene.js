@@ -21,8 +21,6 @@ pointer.y = resolution.height/2-pointer.getBounds().height/2
 
 export function load(s) {
 
-    // 播放背景音乐
-    play()
 
     stage = s
 
