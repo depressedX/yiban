@@ -1,5 +1,9 @@
+/**
+ * PM说不要了  但我还是留着以防万一
+ */
 import ee from 'event-emitter'
 import {resolution} from "../metaInfo"
+
 
 let stage
 export let eventEmitter = ee({})
@@ -27,6 +31,7 @@ function scrolloverHandler() {
 }
 
 export function load(s) {
+
     stage = s
 
     stage.addChild(background)

@@ -1,6 +1,5 @@
 import './lib/createjs.min'
 import {load as loadPreloadScene, eventEmitter as preloadSceneEvent} from "./scenes/preloadScene";
-import {load as loadWelcomeScene, eventEmitter as welcomeSceneEvent} from "./scenes/welcomeScene";
 import {load as loadStartupScene, eventEmitter as startupSceneEvent} from "./scenes/startupScene";
 import {load as loadMainTicketScene, eventEmitter as mainTicketSceneEvent} from "./scenes/mainTicketScene";
 import {load as loadMainNetDiskScene, eventEmitter as mainNetDiskSceneEvent} from "./scenes/mainNetdiskScene";
@@ -9,6 +8,7 @@ import {load as loadEndScene, eventEmitter as endSceneEvent} from "./scenes/endS
 import {resolution} from "./metaInfo"
 import {CONTAIN, getSuggestedSize} from "./utils";
 import {clearStage} from "./scenes/common";
+import bgm from './assets/audio/demo.mp3'
 
 
 let canvasDom = document.getElementById("main-stage"),
@@ -40,14 +40,18 @@ function resizeCanvas() {
 
 resizeCanvas()
 
-
+// var loader = new createjs.LoadQueue(true);
+// loader.installPlugin(createjs.Sound);
+// loader.on("complete", readytoplayAudio);
+// loader.loadFile({id:"mysound", src:"http://www.gbtags.com/tutorials/html5-tutorial/html5-demos/assets/song.ogg"});
+//
+//
+// function readytoplayAudio() {
+//     createjs.Sound.play("mysound");
+// }
 
 loadPreloadScene(stage)
 preloadSceneEvent.on('next', () => {
-    clearStage(stage)
-    loadWelcomeScene(stage)
-})
-welcomeSceneEvent.on('next', () => {
     clearStage(stage)
     loadStartupScene(stage)
 })

@@ -46,6 +46,9 @@ import endPageLink from './end_page_link.jpg'
 
 import convertion from './convertion.jpg'
 
+import musicOn from './music_on.png'
+import musicOff from './music_off.png'
+
 
 
 export {
@@ -92,5 +95,8 @@ export {
     endPageBack,
     endPageLink,
 
-    convertion
+    convertion,
+
+    musicOff,
+    musicOn
 }

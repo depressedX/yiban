@@ -3,6 +3,7 @@ import {resolution} from "../metaInfo"
 import {startup} from '../assets/image'
 import {getSuggestedSize, COVER} from "../utils";
 import {createPointer} from "./common";
+import {play} from "../bgmPlayer";
 
 let stage
 export let eventEmitter = ee({})
@@ -19,6 +20,10 @@ pointer.x = resolution.width/2
 pointer.y = resolution.height/2-pointer.getBounds().height/2
 
 export function load(s) {
+
+    // 播放背景音乐
+    play()
+
     stage = s
 
     stage.addChild(bitmap)

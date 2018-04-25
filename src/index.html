@@ -25,9 +25,30 @@
             transform: translate(-50%,-50%);
 
         }
+        #bgm-control{
+            position: fixed;
+            right: 1em;
+            top:1em;
+        }
+        #bgm-control img.music-icon{
+            width: 2em;
+            height: 2em;
+        }
+        #bgm-control img.music-icon.music--on{
+            animation: spin 6s linear infinite;
+        }
+        @keyframes spin {
+            from{
+                transform: rotateZ(0deg);
+            }
+            to{
+                transform: rotateZ(360deg);
+            }
+        }
     </style>
 </head>
 <body>
 <canvas width="640" height="1030" id="main-stage"></canvas>
+<a href="javascript:void(0)" id="bgm-control"><img src="" alt="背景音乐" class="music-icon music--on"></a>
 </body>
 </html>

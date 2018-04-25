@@ -35,6 +35,8 @@ export function load(stageOn) {
     // 预加载页面
     preloader.startPreload()
 
+
+
     stage.addChild(tianpingPic)
     stage.addChild(progressText)
     stage.addChild(hintText)
