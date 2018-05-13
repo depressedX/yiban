@@ -8,12 +8,10 @@ import {load as loadEndScene, eventEmitter as endSceneEvent} from "./scenes/endS
 import {resolution} from "./metaInfo"
 import {CONTAIN, getSuggestedSize} from "./utils";
 import {clearStage} from "./scenes/common";
-import bgm from './assets/audio/demo.mp3'
-
+import {play,stop} from "./bgmPlayer";
 
 let canvasDom = document.getElementById("main-stage"),
     stage = new createjs.Stage(canvasDom)
-
 
 // 帧率控制
 function tick() {
@@ -40,35 +38,30 @@ function resizeCanvas() {
 
 resizeCanvas()
 
-// var loader = new createjs.LoadQueue(true);
-// loader.installPlugin(createjs.Sound);
-// loader.on("complete", readytoplayAudio);
-// loader.loadFile({id:"mysound", src:"http://www.gbtags.com/tutorials/html5-tutorial/html5-demos/assets/song.ogg"});
-//
-//
-// function readytoplayAudio() {
-//     createjs.Sound.play("mysound");
-// }
-
 loadPreloadScene(stage)
 preloadSceneEvent.on('next', () => {
     clearStage(stage)
+    play(0)
     loadStartupScene(stage)
 })
 startupSceneEvent.on('next', () => {
     clearStage(stage)
     loadMainNetDiskScene(stage)
+    play(1)
 })
 mainNetDiskSceneEvent.on('next', () => {
     clearStage(stage)
     loadMainTicketScene(stage)
+    play(2)
 })
 mainTicketSceneEvent.on('next', () => {
     clearStage(stage)
     loadMainSocialScene(stage)
+    play(3)
 })
 mainSocialSceneEvent.on('next', () => {
     clearStage(stage)
+    stop()
     loadEndScene(stage)
 })
 

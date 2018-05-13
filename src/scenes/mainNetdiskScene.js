@@ -1,7 +1,7 @@
 import ee from 'event-emitter'
 import {Camera, createFullWidthBitmap, createPartWidthBitmap, executeDefaultPlayAction, SceneQueue} from "./common";
 import {
-    netdisk_1, netdisk_2, netdisk_3_1, netdisk_3_2, netdisk_4, netdisk_5_1, netdisk_5_2, netdisk_6, netdisk_7
+    netdisk_1, netdisk_2, netdisk_3, netdisk_4_1, netdisk_4_2, netdisk_5, netdisk_6_1, netdisk_6_2, netdisk_7,netdisk_8
 } from '../assets/image'
 import {resolution} from "../metaInfo";
 
@@ -12,15 +12,16 @@ export let eventEmitter = ee({})
 let mainSceneIndex = 0
 
 
-let pic1 = createFullWidthBitmap(netdisk_1, 618, 349),
-    pic2 = createFullWidthBitmap(netdisk_2, 615, 298),
-    pic3_1 = createPartWidthBitmap(netdisk_3_1, 200, 221, 200 / (200 + 387)),
-    pic3_2 = createPartWidthBitmap(netdisk_3_2, 387, 221, 387 / (200 + 387)),
-    pic4 = createFullWidthBitmap(netdisk_4, 602, 347),
-    pic5_1 = createPartWidthBitmap(netdisk_5_1, 278, 289, 278 / (278 + 309)),
-    pic5_2 = createPartWidthBitmap(netdisk_5_2, 309, 289, 309 / (278 + 309)),
-    pic6 = createFullWidthBitmap(netdisk_6, 601, 412),
-    pic7 = createFullWidthBitmap(netdisk_7, 602, 477)
+let pic1 = createFullWidthBitmap(netdisk_1, 618, 353),
+    pic2 = createFullWidthBitmap(netdisk_2, 615, 291),
+    pic3 = createFullWidthBitmap(netdisk_3,618,57),
+    pic4_1 = createPartWidthBitmap(netdisk_4_1, 217, 230, 217 / (217 + 397)),
+    pic4_2 = createPartWidthBitmap(netdisk_4_2, 397, 230, 397 / (217 + 397)),
+    pic5 = createFullWidthBitmap(netdisk_5, 610, 365),
+    pic6_1 = createPartWidthBitmap(netdisk_6_1, 286, 313, 286 / (286 + 328)),
+    pic6_2 = createPartWidthBitmap(netdisk_6_2, 328, 313, 328 / (286 + 328)),
+    pic7 = createFullWidthBitmap(netdisk_7, 614, 430),
+    pic8 = createFullWidthBitmap(netdisk_8, 614, 508)
 
 
 /***
@@ -74,16 +75,35 @@ function animationFunc() {
     )
 
     // 3.
+    animationQueue = animationQueue.then(()=>Promise.all([
+        sceneQueue.load({
+            bitmap:pic3,
+            duration:1000,
+            offset:resolution.height/2,
+            dir:SceneQueue.VERTICAL,
+            ease:createjs.Ease.cubicInOut,
+            wait:1000
+        }),
+        camera.focus({
+            x:resolution.width/2,
+            y:pic1.getBounds().height + pic2.getBounds().height + pic3.getBounds().height/2,
+            duration:1000,
+            ease: createjs.Ease.getPowOut(3),
+            wait: 1000,
+        })
+    ]))
+
+    // 4.
     animationQueue = animationQueue.then(() => Promise.all([
             sceneQueue.load({
-                bitmap: pic3_1,
+                bitmap: pic4_1,
                 duration: 1000,
                 offset: resolution.height / 2,
                 dir: SceneQueue.VERTICAL,
                 ease: createjs.Ease.cubicInOut,
                 wait: 1000,
             }).then(() => sceneQueue.load({
-                    bitmap: pic3_2,
+                    bitmap: pic4_2,
                     duration: 1000,
                     offset: resolution.width,
                     dir: SceneQueue.HORIZONTAL,
@@ -93,15 +113,15 @@ function animationFunc() {
                 })
             ),
             camera.focus({
-                x: pic3_1.getBounds().width / 2,
-                y: pic1.getBounds().height + pic2.getBounds().height + pic3_1.getBounds().height / 2,
+                x: pic4_1.getBounds().width / 2,
+                y: pic1.getBounds().height + pic2.getBounds().height + pic3.getBounds().height + pic4_1.getBounds().height / 2,
                 duration: 1000,
                 ease: createjs.Ease.getPowOut(3),
                 wait: 1000,
                 scale: 3
             }).then(() => camera.focus({
-                    x: pic3_1.getBounds().width + pic3_2.getBounds().width / 2,
-                    y: pic1.getBounds().height + pic2.getBounds().height + pic3_1.getBounds().height / 2,
+                    x: pic4_1.getBounds().width + pic4_2.getBounds().width / 2,
+                    y: pic1.getBounds().height + pic2.getBounds().height + pic3.getBounds().height + pic4_1.getBounds().height / 2,
                     duration: 1000,
                     ease: createjs.Ease.getPowOut(3),
                     wait: 1000,
@@ -111,10 +131,10 @@ function animationFunc() {
         ])
     )
 
-    // 4.
+    // 5.
     animationQueue = animationQueue.then(() => Promise.all([
             sceneQueue.load({
-                bitmap: pic4,
+                bitmap: pic5,
                 duration: 1000,
                 offset: -resolution.width,
                 dir: SceneQueue.HORIZONTAL,
@@ -123,7 +143,7 @@ function animationFunc() {
             }),
             camera.focus({
                 x: resolution.width / 2,
-                y: pic1.getBounds().height + pic2.getBounds().height + pic3_1.getBounds().height + pic4.getBounds().height / 2,
+                y: pic1.getBounds().height + pic2.getBounds().height + pic3.getBounds().height + pic4_1.getBounds().height + pic5.getBounds().height / 2,
                 duration: 1000,
                 ease: createjs.Ease.getPowOut(3),
                 wait: 1000
@@ -131,29 +151,29 @@ function animationFunc() {
         ])
     )
 
-    // 5.
+    // 6.
     animationQueue = animationQueue.then(() => Promise.all([
             sceneQueue.load({
-                bitmap: pic5_1,
+                bitmap: pic6_1,
                 duration: 1000,
                 offset: resolution.height / 2,
                 dir: SceneQueue.VERTICAL,
                 ease: createjs.Ease.cubicInOut,
                 wait: 1000,
             }).then(() => sceneQueue.load({
-                    bitmap: pic5_2,
+                    bitmap: pic6_2,
                     inline: true
                 })
             ),
             camera.focus({
                 x: resolution.width / 2,
-                y: pic1.getBounds().height + pic2.getBounds().height + pic3_1.getBounds().height + pic4.getBounds().height,
+                y: pic1.getBounds().height + pic2.getBounds().height + pic3.getBounds().height + pic4_1.getBounds().height + pic5.getBounds().height,
                 duration: 1000,
                 ease: createjs.Ease.getPowOut(3),
                 wait: 1000,
             }).then(() => camera.focus({
                     x: resolution.width / 2,
-                    y: pic1.getBounds().height + pic2.getBounds().height + pic3_1.getBounds().height + pic4.getBounds().height,
+                    y: pic1.getBounds().height + pic2.getBounds().height + pic3.getBounds().height + pic4_1.getBounds().height + pic5.getBounds().height,
                     duration: 1000,
                     ease: createjs.Ease.getPowOut(3),
                     wait: 1000,
@@ -162,27 +182,6 @@ function animationFunc() {
         ])
     )
 
-
-    // 6.
-    animationQueue = animationQueue.then(() => Promise.all([
-            sceneQueue.load({
-                bitmap: pic6,
-                duration: 1000,
-                offset: resolution.height / 2,
-                dir: SceneQueue.VERTICAL,
-                ease: createjs.Ease.cubicInOut,
-                wait: 1000
-            }),
-            camera.focus({
-                x: resolution.width / 2,
-                y: pic1.getBounds().height + pic2.getBounds().height + pic3_1.getBounds().height
-                + pic4.getBounds().height + pic5_2.getBounds().height + pic6.getBounds().height / 2,
-                duration: 1000,
-                ease: createjs.Ease.getPowOut(3),
-                wait: 1000
-            })
-        ])
-    )
 
     // 7.
     animationQueue = animationQueue.then(() => Promise.all([
@@ -196,8 +195,29 @@ function animationFunc() {
             }),
             camera.focus({
                 x: resolution.width / 2,
-                y: pic1.getBounds().height + pic2.getBounds().height + pic3_1.getBounds().height + pic4.getBounds().height
-                + pic5_2.getBounds().height + pic6.getBounds().height / 2 + pic7.getBounds().height,
+                y: pic1.getBounds().height + pic2.getBounds().height + pic3.getBounds().height + pic4_1.getBounds().height
+                + pic5.getBounds().height + pic6_2.getBounds().height + pic7.getBounds().height / 2,
+                duration: 1000,
+                ease: createjs.Ease.getPowOut(3),
+                wait: 1000
+            })
+        ])
+    )
+
+    // 8.
+    animationQueue = animationQueue.then(() => Promise.all([
+            sceneQueue.load({
+                bitmap: pic8,
+                duration: 1000,
+                offset: resolution.height / 2,
+                dir: SceneQueue.VERTICAL,
+                ease: createjs.Ease.cubicInOut,
+                wait: 1000
+            }),
+            camera.focus({
+                x: resolution.width / 2,
+                y: pic1.getBounds().height + pic2.getBounds().height + pic3.getBounds().height + pic4_1.getBounds().height + pic5.getBounds().height
+                + pic6_2.getBounds().height + pic7.getBounds().height / 2 + pic8.getBounds().height,
                 duration: 1000,
                 ease: createjs.Ease.getPowOut(3),
                 wait: 1000

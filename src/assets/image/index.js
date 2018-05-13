@@ -30,13 +30,14 @@ import social_9 from './social_3_03.jpg'
 
 import netdisk_1 from './netdisk_1.jpg'
 import netdisk_2 from './netdisk_2.jpg'
-import netdisk_3_1 from './netdisk_3_1.jpg'
-import netdisk_3_2 from './netdisk_3_2.jpg'
-import netdisk_4 from './netdisk_4.jpg'
-import netdisk_5_1 from './netdisk_5_1.jpg'
-import netdisk_5_2 from './netdisk_5_2.jpg'
-import netdisk_6 from './netdisk_6.jpg'
+import netdisk_3 from './netdisk_3.jpg'
+import netdisk_4_1 from './netdisk_4_1.jpg'
+import netdisk_4_2 from './netdisk_4_2.jpg'
+import netdisk_5 from './netdisk_5.jpg'
+import netdisk_6_1 from './netdisk_6_1.jpg'
+import netdisk_6_2 from './netdisk_6_2.jpg'
 import netdisk_7 from './netdisk_7.jpg'
+import netdisk_8 from './netdisk_8.jpg'
 
 import transition from './transition.jpg'
 
@@ -81,13 +82,14 @@ export {
 
     netdisk_1,
     netdisk_2,
-    netdisk_3_1,
-    netdisk_3_2,
-    netdisk_4,
-    netdisk_5_1,
-    netdisk_5_2,
-    netdisk_6,
+    netdisk_3,
+    netdisk_4_1,
+    netdisk_4_2,
+    netdisk_5,
+    netdisk_6_1,
+    netdisk_6_2,
     netdisk_7,
+    netdisk_8,
 
     transition,
 
