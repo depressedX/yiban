@@ -4,26 +4,30 @@ import bgm1 from './assets/audio/bgm1.mp3'
 import bgm2 from './assets/audio/bgm2.mp3'
 import bgm3 from './assets/audio/bgm3.mp3'
 import bgm4 from './assets/audio/bgm4.mp3'
+import bgm1webm from './assets/audio/bgm1.webm'
+import bgm2webm from './assets/audio/bgm2.webm'
+import bgm3webm from './assets/audio/bgm3.webm'
+import bgm4webm from './assets/audio/bgm4.webm'
 
 
-// createjs.Sound.registerPlugins([createjs.WebAudioPlugin, createjs.HTMLAudioPlugin, createjs.FlashAudioPlugin]);
 
+// 为了保证兼容性 全部使用html5播放
 let sounds = [
     new Howl({
-        src: [bgm1],
-        loop: true
+        src: [bgm1webm,bgm1],
+        loop: true,
     }),
     new Howl({
-        src: [bgm2],
-        loop: true
+        src: [bgm2webm,bgm2],
+        loop: true,
     }),
     new Howl({
-        src: [bgm3],
-        loop: true
+        src: [bgm3webm,bgm3],
+        loop: true,
     }),
     new Howl({
-        src: [bgm4],
-        loop: true
+        src: [bgm4webm,bgm4],
+        loop: true,
     })
 ]
 let curSoundIndex = null

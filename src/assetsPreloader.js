@@ -1,9 +1,6 @@
 import ee from 'event-emitter'
 import * as images from './assets/image'
-import bgm1 from './assets/audio/bgm1.mp3'
-import bgm2 from './assets/audio/bgm2.mp3'
-import bgm3 from './assets/audio/bgm3.mp3'
-import bgm4 from './assets/audio/bgm4.mp3'
+
 
 /**
  * 触发事件 progress complete error
@@ -18,34 +15,41 @@ for (let key in images) {
     })
 }
 
-let audios = [
-    {
-        src:bgm1,
-        id:'bgm1'
-    },
-    {
-        src:bgm2,
-        id:'bgm2'
-    },
-    {
-        src:bgm3,
-        id:'bgm3'
-    },
-    {
-        src:bgm4,
-        id:'bgm4'
-    },
-]
+// let audios = [
+//     {
+//         src: bgm1,
+//         id: 'bgm1'
+//     },
+//     {
+//         src: bgm2,
+//         id: 'bgm2'
+//     },
+//     {
+//         src: bgm3,
+//         id: 'bgm3'
+//     },
+//     {
+//         src: bgm4,
+//         id: 'bgm4'
+//     },
+// ]
 
 let exports = {
     startPreload: function () {
-        preloader.loadManifest(imageManifest)
-        audios.forEach(audio => {
-            preloader.loadFile(audio)
-        })
+        preloader.loadManifest(imageManifest,false)
+
+        // 音频暂时不放在预加载内容中
+        // preloader.loadFile({src: imageManifest[0], id: 'test'});
+
+        preloader.load()
     }
 }
 ee(exports)
+
+
+
+// createjs.Sound.registerPlugins([createjs.WebAudioPlugin, createjs.HTMLAudioPlugin, createjs.FlashAudioPlugin]);
+
 
 let preloader = new createjs.LoadQueue(true)
 preloader.installPlugin(createjs.Sound)
