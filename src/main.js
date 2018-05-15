@@ -41,27 +41,22 @@ resizeCanvas()
 loadPreloadScene(stage)
 preloadSceneEvent.on('next', () => {
     clearStage(stage)
-    play(0)
     loadStartupScene(stage)
 })
 startupSceneEvent.on('next', () => {
     clearStage(stage)
     loadMainNetDiskScene(stage)
-    play(1)
 })
 mainNetDiskSceneEvent.on('next', () => {
     clearStage(stage)
     loadMainTicketScene(stage)
-    play(2)
 })
 mainTicketSceneEvent.on('next', () => {
     clearStage(stage)
     loadMainSocialScene(stage)
-    play(3)
 })
 mainSocialSceneEvent.on('next', () => {
     clearStage(stage)
-    stop()
     loadEndScene(stage)
 })
 

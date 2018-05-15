@@ -4,6 +4,7 @@ import {
     netdisk_1, netdisk_2, netdisk_3, netdisk_4_1, netdisk_4_2, netdisk_5, netdisk_6_1, netdisk_6_2, netdisk_7,netdisk_8
 } from '../assets/image'
 import {resolution} from "../metaInfo";
+import {play} from "../bgmPlayer";
 
 let stage
 export let eventEmitter = ee({})
@@ -231,6 +232,8 @@ function animationFunc() {
 
 export function load(s) {
     stage = s
+
+    play(1)
 
     executeDefaultPlayAction(stage, mainSceneIndex, eventEmitter, animationFunc)
 

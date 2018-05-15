@@ -2,7 +2,7 @@ import ee from 'event-emitter'
 import {resolution} from "../metaInfo"
 import {endPage,endPageBack,endPageLink} from '../assets/image'
 import {getSuggestedSize, CONTAIN} from "../utils";
-import {createFullWidthBitmap} from "./common";
+import {stop} from "../bgmPlayer";
 
 let stage
 export let eventEmitter = ee({})
@@ -36,6 +36,8 @@ pageContainer.addChild(linkBlock)
 
 export function load(s) {
     stage = s
+
+    stop()
 
     stage.addChild(pageContainer)
 

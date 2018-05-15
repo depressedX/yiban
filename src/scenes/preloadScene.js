@@ -3,6 +3,7 @@ import preloader from '../assetsPreloader'
 import {resolution} from "../metaInfo"
 import ee from 'event-emitter'
 import {getSuggestedSize,COVER} from "../utils";
+import {play} from "../bgmPlayer";
 
 let stage
 
@@ -40,6 +41,8 @@ export function load(stageOn) {
     stage.addChild(tianpingPic)
     stage.addChild(progressText)
     stage.addChild(hintText)
+
+    play(0)
 
 }
 

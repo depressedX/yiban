@@ -4,6 +4,7 @@ import {
     social_1, social_9, social_8, social_7, social_6, social_5, social_4, social_3, social_2
 } from '../assets/image'
 import {resolution} from "../metaInfo";
+import {play} from "../bgmPlayer";
 
 let stage
 export let eventEmitter = ee({})
@@ -97,6 +98,7 @@ function animationFunc() {
 export function load(s) {
     stage = s
 
+    play(3)
     executeDefaultPlayAction(stage, mainSceneIndex, eventEmitter, animationFunc)
 
 }

@@ -7,6 +7,7 @@ import {
     convertion
 } from '../assets/image'
 import {resolution} from "../metaInfo";
+import {play} from "../bgmPlayer";
 
 let stage
 export let eventEmitter = ee({})
@@ -108,6 +109,8 @@ export function load(s) {
     for (let i = 1; i < pics.length; i++) {
         picHeightsStack[i] = picHeightsStack[i - 1] + picsHeight[i - 1]
     }
+
+    play(2)
 
     executeDefaultPlayAction(stage, mainSceneIndex, eventEmitter, animationFunc)
 
